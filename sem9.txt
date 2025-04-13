@@ -1,0 +1,8 @@
+23XT91|Security in Computing|23XT42,23XT44,23XT52|Computer Networks,Operating Systems,Computational Number Theory and Cryptography
+23XT92|Digital Image Processing and Computer Vision|23XT23,23XT53|Data Structures and Algorithms,Machine Learning
+23XT93|Information Retrieval|23XT34,23XT41,23XT53|Advanced Data Structures,Stochastic Processes,Machine Learning
+23XTE_|Professional Elective - IV|REFER COURSE|
+23XTO_|Open Elective - II|REFER COURSE|
+23XT96|Security in Computing Lab|23XT91|Security in Computing
+23XT97|Digital Image Processing and Computer Vision Lab|23XT92|Digital Image Processing and Computer Vision
+23XT98|Information Retrieval Lab|23XT93|Information Retrieval
