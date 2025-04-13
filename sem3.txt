@@ -1,0 +1,8 @@
+23XT31|Probability and Statistics|23XT21|Discrete Structures
+23XT32|Linear Algebra|23XT21 and 23XT22|Discrete Structures and Abstract Algebra
+23XT33|Graph Theory|23XT21|Discrete Structures
+23XT34|Advanced Data Structures|23XT23|Data Structures and Algorithms
+23XT35|Computer Organization and Assembly Language Programming|23XT14|Digital Electronics
+23XT36|Statistical Computing and R Programming Lab|23XT31|Probability and Statistics
+23XT37|Advanced Data Structures Lab|23XT34|Advanced Data Structures
+23XT38|Scientific Computing Lab|23XT32|Linear Algebra
