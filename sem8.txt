@@ -1,1 +1,8 @@
-
+23XT81|Game Theory|23XT31|Probability and Statistics
+23XT82|Advanced Algorithms|23XT41,23XT54|Stochastic Processes,Design and Analysis of Algorithms
+23XT83|Data Mining|23XT53|Machine Learning
+23XTE_|Professional Elective - III|REFER COURSE|
+23XTO_|Open Elective - I|REFER COURSE|
+23XT86|Functional Programming Lab|NA,NA,NA,NA|Basic programming knowledge,understanding of recursion,data structures,introductory concepts of object-oriented or imperative programming
+23XT87|Data Mining and Visualization Lab|23XT56|Machine Learning Lab
+23XT88|Research Specialization Lab|NA,NA,NA|Fundamental knowledge of core computer science subjects,basic research methodology,academic writing skills
