@@ -1,0 +1,8 @@
+23XT41|Stochastic Processes|23XT31,23XT32|Probability and Statistics,Linear Algebra
+23XT42|Computer Networks|23XT35|
+23XT43|Optimization Techniques|23XT32|
+23XT44|Operating Systems|23XT23,23XT35|
+23XT45|Database Management System|23XT21,23XT34|
+23XT46|Computer Networks Lab|23XT35|
+23XT47|Operating Systems Lab|23XT23,23XT35|
+23XT48|RDBMS Lab|23XT45|23XT21,23XT34|
