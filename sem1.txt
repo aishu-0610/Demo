@@ -1,8 +1,8 @@
-23XT11|Calculus and its Applications| |Algebra,Trigonometry,Pre-Calculus concepts (functions, limits, graphs)
-23XT12|English for Professional Skills| |High School level English,Understanding of grammar,Understanding of writing,Understanding of reading comprehension
-23XT13|Applied Physics| |High School Physics,Mechanics,Mechanical Oscillations
-23XT14|Digital Electronics| |High School Physics & Mathematics,Binary number system,Logic gates (introductory),Basic algebra
-23XT15|Problem Solving and C Programming| |Logical Reasoning & Basic Computer Literacy,No formal coding experience is typically required, but understanding:(Flowcharts / Algorithms,Basic problem-solving strategies)
-23XT16|Applied Physics and Digital Electronics Lab| |Mechanics,Heat,Optics,Humidity,Logic gates,Boolean algebra,Binary systems,Basic circuits
-23XT17|C Programming Lab| |Basic C syntax,Data types,Loops,Logic
-23XT18|Mathematics Laboratory| |Basic calculus,Geometry,Combinatorics,Algebra,Logic
+23XT11|Calculus and its Applications|NA,NA,NA|Algebra,Trigonometry,Pre-Calculus concepts (functions, limits, graphs)
+23XT12|English for Professional Skills|NA,NA,NA,NA|High School level English,Understanding of grammar,Understanding of writing,Understanding of reading comprehension
+23XT13|Applied Physics|NA,NA,NA|High School Physics,Mechanics,Mechanical Oscillations
+23XT14|Digital Electronics|NA,NA,NA,NA|High School Physics & Mathematics,Binary number system,Logic gates (introductory),Basic algebra
+23XT15|Problem Solving and C Programming|NA,NA|Logical Reasoning & Basic Computer Literacy,No formal coding experience is typically required, but understanding:(Flowcharts / Algorithms,Basic problem-solving strategies)
+23XT16|Applied Physics and Digital Electronics Lab|NA,NA,NA,NA,NA,NA,NA,NA|Mechanics,Heat,Optics,Humidity,Logic gates,Boolean algebra,Binary systems,Basic circuits
+23XT17|C Programming Lab|NA,NA,NA,NA|Basic C syntax,Data types,Loops,Logic
+23XT18|Mathematics Laboratory|NA,NA,NA,NA,NA|Basic calculus,Geometry,Combinatorics,Algebra,Logic
