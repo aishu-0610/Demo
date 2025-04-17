@@ -1,0 +1,13 @@
+23XTO1|Computational Finance|23XT31|Probability and Statistics
+23XTO2|Computational Geometry|23XT33,23XT34|Graph Theory,Advanced Data Structures
+23XTO3|Natural Language Processing|23XT53,23XT62|Machine Learning,Artificial Intelligence
+23XTO4|Logic for Computer Science|23XT51,23XT54|Theory of Computing,Design and Analysis of Algorithms
+23XTO5|Internet of Things|23XT42,23XT44|Computer Networks,Database Management System
+23XTO6|Digital Topology|23XT21|Discrete Structures
+23XTO7|Computer Forensics|23XT42,23XT44|Computer Networks,Operating Systems
+23XTO8|Virtual and Augmented Reality|23XT32|Linear Algebra
+23XTO9|Mobile Technology|23XT24|Object Oriented Programming
+23XTOA|Environmental Science and Green Computing|NA,NA|Basic Computer Literacy,Mathematics
+23XTOB|Accounting and Financial Management|NA,NA,NA|Basic Mathematics,Understanding of basic business vocabulary,Logical Thinking
+23XTOC|Principles of Management and Behavioural Sciences|NA,NA|High school level reading comprehension,Basic writing and communication skills
+23XTOD|Entrepreneurship|NA,NA,NA|High School Mathematics,Communication Skills,Creativity
