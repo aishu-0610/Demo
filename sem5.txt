@@ -2,7 +2,7 @@
 23XT52|Computational Number Theory and Cryptography|23XT22|Abstract Algebra
 23XT53|Machine Learning|23XT31,23XT43|Probability and Statistics,Optimization Techniques
 23XT54|Design and Analysis of Algorithms|23XT34,23XT43|Advanced Data Structures,Optimization Techniques
-23XTE_|Professional Elective - 1|REFER COURSE|
+23XTE_|Professional Elective - I|REFER COURSE|
 23XT56|Machine Learning Lab|23XT53|Machine Learning
 23XT57|Design and Analysis of Algorithms Lab|23XT54|Design and Analysis of Algorithms
 23XT58|Java Programming Lab|23XT24|Object Oriented Programming
