@@ -1,11 +1,12 @@
 #include <iostream>
 #include <fstream>
-#include <sstream>
 #include <cstring>
 using namespace std;
 
 const int MAX_COURSES = 100;
 const int MAX_PREREQS = 10;
+const int MAX_SEMESTERS = 10;
+const int MAX_CODES_PER_SEMESTER = 20;
 
 struct Course {
     char code[10];
@@ -19,11 +20,17 @@ class CourseGraph {
 private:
     Course courseList[MAX_COURSES];
     int courseCount;
+    char semesterCourses[MAX_SEMESTERS][MAX_CODES_PER_SEMESTER][10];
+    int semesterCourseCounts[MAX_SEMESTERS];
 
 public:
-    CourseGraph() : courseCount(0) {}
+    CourseGraph() : courseCount(0) {
+        for (int i = 0; i < MAX_SEMESTERS; ++i) {
+            semesterCourseCounts[i] = 0;
+        }
+    }
 
-    void addCourse(const char* code, const char* name, const char prereqCodes[][10], const char prereqNames[][100], int prereqCount) {
+    void addCourse(const char* code, const char* name, const char prereqCodes[][10], const char prereqNames[][100], int prereqCount, int semester) {
         strncpy(courseList[courseCount].code, code, sizeof(courseList[courseCount].code));
         strncpy(courseList[courseCount].name, name, sizeof(courseList[courseCount].name));
         courseList[courseCount].prereqCount = prereqCount;
@@ -33,6 +40,8 @@ public:
             strncpy(courseList[courseCount].prereqNames[i], prereqNames[i], sizeof(courseList[courseCount].prereqNames[i]));
         }
 
+        strncpy(semesterCourses[semester - 1][semesterCourseCounts[semester - 1]], code, sizeof(semesterCourses[semester - 1][semesterCourseCounts[semester - 1]]));
+        semesterCourseCounts[semester - 1]++;
         courseCount++;
     }
 
@@ -50,91 +59,141 @@ public:
 
         int index = findCourseIndex(code);
         if (index == -1) {
-            cout << "Course not found: " << code << endl;
+            cout << string(level * 4, ' ') << "   ^f    Course not found: " << code << endl;
             return;
         }
 
         const Course& course = courseList[index];
-        cout << string(level * 2, ' ') << "Course: " << course.code << " - " << course.name << endl;
+        cout << string(level * 4, ' ') << "   ^f    " << course.code << " - " << course.name << endl;
 
         for (int i = 0; i < course.prereqCount; i++) {
             if (strcmp(course.prereqCodes[i], "NA") == 0) {
-                cout << string((level + 1) * 2, ' ') << "Prerequisite: " << course.prereqNames[i] << endl;
+                cout << string((level + 1) * 4, ' ') << "   ^f    " << course.prereqNames[i] << endl;
                 continue;
             }
-            cout << string((level + 1) * 2, ' ') << "Prerequisite: " << course.prereqCodes[i] << " - " << course.prereqNames[i] << endl;
             printPrerequisites(course.prereqCodes[i], level + 1);
         }
     }
 
-    void loadCoursesFromFile(const char* filename) {
+    void loadCoursesFromFile(const char* filename, int semester) {
         ifstream file(filename);
-        if (!file.is_open()) {
-            cerr << "Error opening file: " << filename << endl;
-            return;
-        }
+        if (!file.is_open()) return;
 
-        string line;
-        while (getline(file, line)) {
+        char line[1024];
+        while (file.getline(line, sizeof(line))) {
             char code[10] = {}, name[100] = {};
             char prereqCodesPart[256] = {}, prereqNamesPart[512] = {};
             char parsedPrereqCodes[MAX_PREREQS][10];
             char parsedPrereqNames[MAX_PREREQS][100];
             int prereqCount = 0;
 
-            size_t pos1 = line.find('|');
-            size_t pos2 = line.find('|', pos1 + 1);
-            size_t pos3 = line.find('|', pos2 + 1);
+            int pos1 = -1, pos2 = -1, pos3 = -1;
+            for (int i = 0, sepCount = 0; line[i] != '\0'; i++) {
+                if (line[i] == '|') {
+                    if (sepCount == 0) pos1 = i;
+                    else if (sepCount == 1) pos2 = i;
+                    else if (sepCount == 2) {
+                        pos3 = i;
+                        break;
+                    }
+                    sepCount++;
+                }
+            }
+            if (pos1 == -1 || pos2 == -1 || pos3 == -1) continue;
 
-            if (pos1 == string::npos || pos2 == string::npos || pos3 == string::npos) continue;
+            strncpy(code, line, min(pos1, (int)sizeof(code) - 1));
+            strncpy(name, line + pos1 + 1, min(pos2 - pos1 - 1, (int)sizeof(name) - 1));
+            strncpy(prereqCodesPart, line + pos2 + 1, min(pos3 - pos2 - 1, (int)sizeof(prereqCodesPart) - 1));
+            strncpy(prereqNamesPart, line + pos3 + 1, min((int)strlen(line) - pos3 - 1, (int)sizeof(prereqNamesPart) - 1));
 
-            int length1 = pos1;
-            int length2 = pos2 - pos1 - 1;
-            int length3 = pos3 - pos2 - 1;
-            int length4 = line.length() - pos3 - 1;
-
-            strncpy(code, &line[0], min(length1, (int)sizeof(code)-1));
-            strncpy(name, &line[pos1 + 1], min(length2, (int)sizeof(name)-1));
-            strncpy(prereqCodesPart, &line[pos2 + 1], min(length3, (int)sizeof(prereqCodesPart)-1));
-            strncpy(prereqNamesPart, &line[pos3 + 1], min(length4, (int)sizeof(prereqNamesPart)-1));
-
-            stringstream codeStream(prereqCodesPart);
-            string token;
             prereqCount = 0;
-            while (getline(codeStream, token, ',') && prereqCount < MAX_PREREQS) {
-                strncpy(parsedPrereqCodes[prereqCount], token.c_str(), sizeof(parsedPrereqCodes[prereqCount]));
-                prereqCount++;
+            int start = 0, end = 0;
+            while (prereqCodesPart[end] != '\0') {
+                if (prereqCodesPart[end] == ',' || prereqCodesPart[end + 1] == '\0') {
+                    int len = (prereqCodesPart[end] == ',' ? end : end + 1) - start;
+                    if (len >= 10) len = 9;
+                    strncpy(parsedPrereqCodes[prereqCount], prereqCodesPart + start, len);
+                    parsedPrereqCodes[prereqCount][len] = '\0';
+                    prereqCount++;
+                    start = end + 1;
+                    if (prereqCount >= MAX_PREREQS) break;
+                }
+                end++;
             }
 
-            stringstream nameStream(prereqNamesPart);
-            for (int i = 0; i < prereqCount && getline(nameStream, token, ','); ++i) {
-                strncpy(parsedPrereqNames[i], token.c_str(), sizeof(parsedPrereqNames[i]));
+            start = 0;
+            end = 0;
+            int count = 0;
+            while (prereqNamesPart[end] != '\0') {
+                if (prereqNamesPart[end] == ',' || prereqNamesPart[end + 1] == '\0') {
+                    int len = (prereqNamesPart[end] == ',' ? end : end + 1) - start;
+                    if (len >= 100) len = 99;
+                    strncpy(parsedPrereqNames[count], prereqNamesPart + start, len);
+                    parsedPrereqNames[count][len] = '\0';
+                    count++;
+                    start = end + 1;
+                    if (count >= MAX_PREREQS) break;
+                }
+                end++;
             }
 
-            addCourse(code, name, parsedPrereqCodes, parsedPrereqNames, prereqCount);
+            addCourse(code, name, parsedPrereqCodes, parsedPrereqNames, prereqCount, semester);
         }
+
         file.close();
+    }
+
+    void displaySemesterCourses(int semester) {
+        if (semester == 7 || semester == 10) {
+            cout << "Semester " << semester << ": Project Work / Research\n";
+            return;
+        }
+
+        cout << "Courses in Semester " << semester << ":\n";
+        for (int i = 0; i < semesterCourseCounts[semester - 1]; ++i) {
+            const char* code = semesterCourses[semester - 1][i];
+            int index = findCourseIndex(code);
+            if (index != -1) {
+                cout << i + 1 << ". " << courseList[index].code << " - " << courseList[index].name << endl;
+            }
+        }
     }
 };
 
 int main() {
     CourseGraph graph;
 
-    graph.loadCoursesFromFile("sem1.txt");
-    graph.loadCoursesFromFile("sem2.txt");
-    graph.loadCoursesFromFile("sem3.txt");
-    graph.loadCoursesFromFile("sem4.txt");
-    graph.loadCoursesFromFile("sem5.txt");
-    graph.loadCoursesFromFile("sem6.txt");
-    graph.loadCoursesFromFile("sem8.txt");
-    graph.loadCoursesFromFile("sem9.txt");
+    graph.loadCoursesFromFile("sem1.txt", 1);
+    graph.loadCoursesFromFile("sem2.txt", 2);
+    graph.loadCoursesFromFile("sem3.txt", 3);
+    graph.loadCoursesFromFile("sem4.txt", 4);
+    graph.loadCoursesFromFile("sem5.txt", 5);
+    graph.loadCoursesFromFile("sem6.txt", 6);
+    graph.loadCoursesFromFile("sem8.txt", 8);
+    graph.loadCoursesFromFile("sem9.txt", 9);
 
-    char courseCode[10];
-    cout << "Enter course code to print prerequisites graph: ";
-    cin >> courseCode;
+    int semester;
+    cout << "Enter semester number (1-10): ";
+    cin >> semester;
 
-    cout << "Prerequisite Graph (Directed):" << endl;
-    graph.printPrerequisites(courseCode);
+    if (semester < 1 || semester > 10) {
+        cout << "Invalid semester.\n";
+        return 0;
+    }
+
+    graph.displaySemesterCourses(semester);
+
+    if (semester == 7 || semester == 10) return 0;
+
+    char code[10];
+    cout << "Enter course code to print prerequisites: ";
+    cin >> code;
+
+    cout << "\nPrerequisite Graph:\n";
+    graph.printPrerequisites(code);
 
     return 0;
 }
+
+
+
