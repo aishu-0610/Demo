@@ -1,4 +1,4 @@
-23XT11|Calculus and its Applications|NA,NA,NA|Algebra,Trigonometry,Pre-Calculus concepts (functions, limits, graphs)
+23XT11|Calculus and its Applications|NA,NA,NA|Algebra,Trigonometry,Pre-Calculus concepts (functions/limits/graphs)
 23XT12|English for Professional Skills|NA,NA,NA,NA|High School level English,Understanding of grammar,Understanding of writing,Understanding of reading comprehension
 23XT13|Applied Physics|NA,NA,NA|High School Physics,Mechanics,Mechanical Oscillations
 23XT14|Digital Electronics|NA,NA,NA,NA|High School Physics & Mathematics,Binary number system,Logic gates (introductory),Basic algebra
