@@ -1,8 +1,8 @@
 23XT21|Discrete Structures|23XT11|Calculus and its applications  
-23XT22|Abstract Algebra|  
+23XT22|Abstract Algebra|NA,NA,NA,NA|Basic Set Theory,Functions and Relations,Elementary Number Theory,Introductory Linear Algebra. 
 23XT23|Data Strutcures and Algorithms|23XT15|Problem Solving and C Programming  
 23XT24|Object Oriented Programming|23XT15|Problem Solving and C Programming  
 23XT25|Transforms and its applications|23XT11|Calculus and its applications  
 23XT26|Data Structures Lab|23XT17|C Programming Lab  
 23XT27|Object Oriented Programming Lab|23XT17|C Programming Lab  
-23XT28|Python Programming|  
+23XT28|Python Programming|NA,NA|Basic knowledge of programming logic, problem-solving techniques  
