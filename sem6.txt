@@ -2,7 +2,7 @@
 23XT62|Artificial Intelligence|23XT23,23XT31|Data Structures and Algorithms,Probability and Statistics
 23XT63|Software Engineering|23XT24|Object Oriented Programming
 23XT64|Principles of Compiler Design|23XT35,23XT51|Computer Organization and Assembly Language Programming,Theory of Computing
-23XTE_|Professional Elective - 2|Refer COURSE|
+23XTE_|Professional Elective - II|Refer COURSE|
 23XT66|Cloud Computing Lab|23XT46,23XT48|Computer Networks Lab,RDBMS Lab
 23XT67|Compiler Design Lab|23XT35,23XT51|Computer Organization and Assembly Language Programming,Theory of Computing
 23XT68|Software Patterns Lab|23XT25,23XT58|Transforms and its Applications,Java Programming Lab
