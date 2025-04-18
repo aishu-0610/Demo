@@ -1,0 +1,18 @@
+23XTE1|Mathematical Analysis|23XT11|Calculus and its Applications
+23XTE2|Social Network Analysis|23XT23,23XT33|Data Structures and Algorithms,Graph Theory
+23XTE3|Computer Graphics|23XT23,23XT32|Data Structures and Algorithms,Linear Algebra
+23XTE4|Random Graphs|23XT31,23XT33|Prbability and Statistics,Graph Theory
+23XTE5|Data Compression|23XT23,23XT25,23XT31|Data Structures and Algorithms,Transforms and its Appications,Prbability and Statistics
+23XTE6|Advanced Operating Systems|23XT44|Operating Systems
+23XTE7|Probabilistic Graph Models|23XT33,23XT41,23XT53|Graph Theory,Stochastic Processes,Machine learning
+23XTE8|Big Data and Modern Database Systems|23XT45|Database Management system
+23XTE9|Functional Analysis|23XT32|Linear Algebra
+23XTEA|Epidemic Models|23XT33,23XT41|Graph Theory,Stochastic Processes
+23XTEB|Computational Complexity Theory|23XT51,23XT54|Theory of Computing,Design and Analysis of Algorithm 
+23XTEC|Network Science|23XT33,23XT41|Graph Theory,Stochastic Processes
+23XTED|Mathematical Modelling|23XT41,23XT43|Stochastic Processes,Optimization Techniques
+23XTEE|Exact Algorithms for Hard problems|23XT54|Design and Analysis of Algorithm
+23XTEF|Wireless Networks|23XT42|Computer Networks
+23XTEG|Statistical Learning|23XT53|Machine Learning
+23XTEH|Large Scale Machine Learning|23XT53|Machine Learning
+23XTEI|Security Modelling And Analysis|23XT52|Computational Number Theory and Cryptography
