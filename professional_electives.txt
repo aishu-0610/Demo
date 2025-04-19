@@ -16,3 +16,7 @@
 23XTEG|Statistical Learning|23XT53|Machine Learning
 23XTEH|Large Scale Machine Learning|23XT53|Machine Learning
 23XTEI|Security Modelling And Analysis|23XT52|Computational Number Theory and Cryptography
+23XTEJ|Parallel and Distributed Computing|23XT42,23XT44|Computer Networks,Operating Systems
+23XTEK|Deep Learning|23XT53|Machine Learning
+23XTEL|Reinforcement Learning|23XT41,23XT53|Stochastic Processes,Machine Learning
+23XTEM|Quantum Computing|23XT32|Linear Algebra
